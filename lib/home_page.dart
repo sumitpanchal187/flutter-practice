@@ -40,10 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
       ),
       body: Center(
-        child: Text(
-          "Selected Index: $_selectedIndex",
-          style: TextStyle(fontSize: 20),
-        ),
+        // child: Text(
+        //   "Selected Index: $_selectedIndex",
+        //   style: TextStyle(fontSize: 20),
+        // ),
       ),
     );
   }
