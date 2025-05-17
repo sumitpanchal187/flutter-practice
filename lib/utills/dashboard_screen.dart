@@ -68,13 +68,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
         animationCurve: Curves.easeInOut,
         color: Colors.blue,
         buttonBackgroundColor: Colors.purple,
-        height: 65,
+        height: 70,
         index: _selectedIndex,
         animationDuration: const Duration(milliseconds: 500),
         items: [
           _customNavItem(Icons.home, 'Home'),
           _customNavItem(Icons.search, 'Search'),
-          _customNavItem(Icons.add, 'Add', padding: 0.0),
+          _customNavItem(Icons.add, 'Add'),
           _customNavItem(Icons.favorite, 'Favorite'),
           _customNavItem(Icons.person, 'Profile'),
         ],
@@ -84,14 +84,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  CurvedNavigationBarItem _customNavItem(IconData icon, String label,
-      {double padding = 8.0}) {
+  CurvedNavigationBarItem _customNavItem(IconData icon, String label) {
     return CurvedNavigationBarItem(
       labelStyle: const TextStyle(color: Colors.white),
-      child: Padding(
-        padding: EdgeInsets.only(top: padding),
-        child: Icon(icon, size: 30, color: Colors.white),
-      ),
+      child: Icon(icon, size: 30, color: Colors.white),
       label: label,
     );
   }
