@@ -5,9 +5,8 @@ class FavoriteTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Testing Expanded and Flexible')),
-      body: Column(
+    return Center(
+      child: Column(
         children: [
           Container(
             height: 200,

@@ -5,8 +5,9 @@ class AddTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body:
-            Center(child: Text('Add Tab', style: TextStyle(fontSize: 24))));
+    return Center(
+        child: Container(
+            alignment: Alignment.center,
+            child: Text('Add Tab', style: TextStyle(fontSize: 24))));
   }
 }

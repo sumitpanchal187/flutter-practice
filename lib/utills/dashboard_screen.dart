@@ -1,9 +1,9 @@
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:practice_flutter/tab/add_tab.dart';
+import 'package:practice_flutter/tab/add_screen.dart';
 import 'package:practice_flutter/tab/favorite_tab.dart';
-import 'package:practice_flutter/tab/home_tab.dart';
+import 'package:practice_flutter/tab/home_screen.dart';
 import 'package:practice_flutter/tab/profile_tab.dart';
 import 'package:practice_flutter/tab/search_tab.dart';
 import 'package:practice_flutter/utills/drawer.dart';
@@ -19,7 +19,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const HomeTab(),
+    const HomeScreen(),
     const SearchTab(),
     const AddTab(),
     const FavoriteTab(),

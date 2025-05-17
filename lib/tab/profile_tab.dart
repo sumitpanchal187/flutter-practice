@@ -6,8 +6,6 @@ class ProfileTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body:
-            Center(child: Text('Profile Tab', style: TextStyle(fontSize: 24))));
+    return Center(child: Text('Profile Tab', style: TextStyle(fontSize: 24)));
   }
 }
