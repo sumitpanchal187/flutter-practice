@@ -53,13 +53,16 @@ class ProductDetailScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.blueAccent),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blueAccent),
                   padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                       const EdgeInsets.symmetric(vertical: 16)),
                 ),
                 onPressed: () {},
-                child: const Text('Add to Cart',style: TextStyle(fontSize: 18,color: Colors.white),),
+                child: const Text(
+                  'Add to Cart',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
               ),
             ),
           ],

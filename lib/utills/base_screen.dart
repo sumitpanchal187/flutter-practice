@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'drawer.dart';
+
 class BaseScreen extends StatelessWidget {
   final String title;
   final Widget child;
   final bool showBackButton;
+  final int selectedIndex;
+  final void Function(int index)? onDrawerItemTap;
+  final Widget? bottomNavigationBar;
 
   const BaseScreen({
     super.key,
     required this.title,
     required this.child,
     this.showBackButton = true,
+    this.selectedIndex = 0,
+    this.onDrawerItemTap,
+    this.bottomNavigationBar,
   });
 
   @override
@@ -17,29 +25,30 @@ class BaseScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: showBackButton
-            ? IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        )
-            : null,
+            ? null
+            : Builder(
+                builder: (context) => IconButton(
+                  icon: Icon(Icons.menu),
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                ),
+              ),
         title: Text(
           title,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Add your notification action here
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Add your settings action here
-            },
-          ),
-        ],
+      ),
+      drawer: AppDrawer(
+        selectedIndex: selectedIndex,
+        onNavigate: (index) {
+          if (onDrawerItemTap != null) {
+            onDrawerItemTap!(index);
+          }
+          Navigator.pop(context); // close drawer
+        },
+        userName: "Sumit",
+        userEmail: "sumit@gmail.com",
+        userImage:
+            "https://i.pinimg.com/236x/c7/9a/37/c79a37e13ef14be556b51143bcbb1b01.jpg",
       ),
       body: SafeArea(
         child: Padding(
@@ -47,6 +56,7 @@ class BaseScreen extends StatelessWidget {
           child: child,
         ),
       ),
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }

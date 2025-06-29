@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:practice_flutter/splash_screen.dart';
 import 'package:practice_flutter/tab/add_screen.dart';
 import 'package:practice_flutter/tab/favorite_tab.dart';
 import 'package:practice_flutter/tab/home_screen.dart';
 import 'package:practice_flutter/tab/profile_tab.dart';
 import 'package:practice_flutter/tab/search_tab.dart';
+import 'package:practice_flutter/utills/dashboard_screen.dart';
 import 'package:practice_flutter/utills/product_detail_screen.dart';
 
-import 'utills/dashboard_screen.dart';
+import 'controller/controller_binding.dart';
 
 class AppRoutes {
   static const String splash = '/';
@@ -19,14 +20,20 @@ class AppRoutes {
   static const String dashboard = '/dashboard';
   static const String productDetail = '/productDetail';
 
-  static Map<String, WidgetBuilder> routes = {
-    splash: (context) => const SplashScreen(),
-    home: (context) => const HomeScreen(),
-    favorite: (context) => const FavoriteTab(),
-    profile: (context) => const ProfileTab(),
-    search: (context) => const SearchTab(),
-    add: (context) => const AddTab(),
-    dashboard: (context) => const DashboardScreen(),
-    productDetail: (context) => const ProductDetailScreen(),
-  };
+  static final List<GetPage> routes = [
+    GetPage(
+      name: splash,
+      page: () => const SplashScreen(),
+    ),
+    GetPage(name: home, page: () => const HomeScreen()),
+    GetPage(name: favorite, page: () => const FavoriteTab()),
+    GetPage(name: profile, page: () => const ProfileTab()),
+    GetPage(name: search, page: () => const SearchTab()),
+    GetPage(name: add, page: () => const AddTab()),
+    GetPage(
+        name: dashboard,
+        page: () => const DashboardScreen(),
+        binding: DashboardBinding()),
+    GetPage(name: productDetail, page: () => const ProductDetailScreen()),
+  ];
 }
